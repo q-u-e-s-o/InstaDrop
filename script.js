@@ -9,7 +9,7 @@ function askForLocation() {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
 
-      fetch("https://eola6haiozo2ls6.m.pipedream.net", {
+      fetch("https://eo2r3s7lrs1i89x.m.pipedream.net", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ latitude: lat, longitude: lon }),
