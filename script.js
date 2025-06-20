@@ -1,21 +1,30 @@
 function askForLocation() {
-  const output = document.getElementById("output");
+  alert("This website would like to access your location.");
 
   if (!navigator.geolocation) {
-    output.textContent = "Geolocation is not supported by your browser.";
+    // Geolocation unsupported, but no page message shown
     return;
   }
 
-  output.textContent = "🔄 Requesting your location...";
-
   navigator.geolocation.getCurrentPosition(
     (position) => {
-      const lat = position.coords.latitude.toFixed(5);
-      const lon = position.coords.longitude.toFixed(5);
-      output.textContent = `✅ Location: Latitude ${lat}, Longitude ${lon}`;
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      // Do whatever you want with lat/lon here, silently.
+      // For example, send to server:
+
+      // fetch("https://your-server.com/location", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({ latitude: lat, longitude: lon })
+      // });
+
+      console.log("User location obtained:", lat, lon); // For debugging only
     },
     (error) => {
-      output.textContent = `❌ Location error: ${error.message}`;
+      console.log("Location access denied or error:", error.message);
+      // No user-facing messages
     }
   );
 }
