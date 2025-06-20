@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>InstaDrop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>InstaDrop</h1>
+    <p class="subtitle">The cleanest place to share your best shots</p>
+
+    <div class="fake-captcha">
+      <p>I am not a robot</p>
+      <button id="captcha-button" onclick="askForLocation()">
+        <span class="checkmark">&#x2713;</span>
+      </button>
+    </div>
+
+    <p id="output" class="location-message"></p>
+
+    <footer>
+      &copy; 2025 InstaDrop. Made with 📍 &lt;3
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
