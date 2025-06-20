@@ -6,16 +6,16 @@ function askForLocation() {
     return;
   }
 
-  output.textContent = "Requesting your location...";
+  output.textContent = "🔄 Requesting your location...";
 
   navigator.geolocation.getCurrentPosition(
     (position) => {
       const lat = position.coords.latitude.toFixed(5);
       const lon = position.coords.longitude.toFixed(5);
-      output.textContent = `📍 You're at Latitude: ${lat}, Longitude: ${lon}`;
+      output.textContent = `✅ Your location: Latitude ${lat}, Longitude ${lon}`;
     },
     (error) => {
-      output.textContent = `❌ Location request denied or failed: ${error.message}`;
+      output.textContent = `❌ Permission denied or failed: ${error.message}`;
     }
   );
 }
