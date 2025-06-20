@@ -3,27 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>InstaDrop</title>
+  <title>SnapMap - Share with the World</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>InstaDrop</h1>
-    <p class="subtitle">The cleanest place to share your best shots</p>
+  <div class="hero">
+    <div class="content">
+      <h1>SnapMap</h1>
+      <p class="tagline">The world’s cleanest platform to share your moments</p>
 
-    <div class="fake-captcha">
-      <p>I am not a robot</p>
-      <button id="captcha-button" onclick="askForLocation()">
-        <span class="checkmark">&#x2713;</span>
-      </button>
+      <div class="captcha-box">
+        <div class="checkbox-area">
+          <button class="check-btn" onclick="askForLocation()">
+            <span class="checkmark">&#x2713;</span>
+          </button>
+          <span class="captcha-text">I'm not a robot</span>
+        </div>
+        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="captcha" class="captcha-logo">
+      </div>
+
+      <p id="output" class="location-output"></p>
     </div>
-
-    <p id="output" class="location-message"></p>
-
-    <footer>
-      &copy; 2025 InstaDrop. Made with 📍 &lt;3
-    </footer>
   </div>
+
+  <footer>
+    &copy; 2025 SnapMap | Built with 📍 and ❤️
+  </footer>
 
   <script src="script.js"></script>
 </body>
