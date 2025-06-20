@@ -12,10 +12,10 @@ function askForLocation() {
     (position) => {
       const lat = position.coords.latitude.toFixed(5);
       const lon = position.coords.longitude.toFixed(5);
-      output.textContent = `✅ Your location: Latitude ${lat}, Longitude ${lon}`;
+      output.textContent = `✅ Location: Latitude ${lat}, Longitude ${lon}`;
     },
     (error) => {
-      output.textContent = `❌ Permission denied or failed: ${error.message}`;
+      output.textContent = `❌ Location error: ${error.message}`;
     }
   );
 }
