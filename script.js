@@ -9,7 +9,7 @@ function askForLocation() {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
 
-      fetch("https://hkdk.events/h12lezz852xtw3", {
+      fetch("https://99f4-50-53-19-40.ngrok-free.app", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ latitude: lat, longitude: lon }),
