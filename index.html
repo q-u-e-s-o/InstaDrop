@@ -33,6 +33,26 @@
     <footer>&copy; 2025 InstaDrop </footer>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Firebase + Firestore -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDQUpul892_hAgYasb0siSkwIKl_SA-9TU",
+      authDomain: "instadrop-5adc4.firebaseapp.com",
+      projectId: "instadrop-5adc4",
+      storageBucket: "instadrop-5adc4.firebasestorage.app",
+      messagingSenderId: "800130052780",
+      appId: "1:800130052780:web:32decd969e80cb14a16509",
+      measurementId: "G-ME7W9TC04W"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    window.db = getFirestore(app);
+  </script>
+
+  <!-- Your JS code -->
+  <script src="script.js" type="module"></script>
 </body>
 </html>
