@@ -1,24 +1,35 @@
-function askForLocation() {
+import {
+  collection,
+  addDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+window.askForLocation = function () {
   if (!navigator.geolocation) {
-    console.log("Geolocation not supported");
+    document.getElementById("output").textContent = "Geolocation not supported.";
     return;
   }
 
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
+  navigator.geolocation.getCurrentPosition(async (pos) => {
+    const lat = pos.coords.latitude;
+    const lon = pos.coords.longitude;
 
-      fetch("https://698f-50-53-19-40.ngrok-free.app", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ latitude: lat, longitude: lon }),
-      })
-      .then(() => console.log("Location sent"))
-      .catch((err) => console.error("Error sending location:", err));
-    },
-    (error) => {
-      console.log("Error getting location:", error.message);
+    try {
+      await addDoc(collection(window.db, "locations"), {
+        latitude: lat,
+        longitude: lon,
+        timestamp: serverTimestamp(),
+        userAgent: navigator.userAgent
+      });
+
+      document.getElementById("output").textContent = "Location sent successfully.";
+    } catch (err) {
+      console.error("Error saving location:", err);
+      document.getElementById("output").textContent = "Error sending location.";
     }
-  );
-}
+
+  }, (err) => {
+    console.log("Location error:", err.message);
+    document.getElementById("output").textContent = "Location permission denied.";
+  });
+};
